@@ -3,9 +3,13 @@ import time
 
 # Trader position 0,0
 traderPos = [705, 415]
+traderColumnOffset = 175
+traderRowOffset = 215
 
 # Item position 0,0
 itemPos = [35, 290]
+itemColumnOffset = 63
+itemRowOffset = 63
 
 
 # For each trader select the trader and examine all items
@@ -14,9 +18,9 @@ def navigate_traders(trader):
     columns = [0, 1, 2, 3]
     for row in rows:
         for column in columns:
-            print(row, column)
+            print(f"Current row: {row}, Current column: {column}")
             time.sleep(3)
-            pyg.moveTo(traderPos[0] + (column * 175), traderPos[1] + (row * 215))
+            pyg.moveTo(traderPos[0] + (column * traderColumnOffset), traderPos[1] + (row * traderRowOffset))
             pyg.click()
             time.sleep(1)
             trader = trader + 1
@@ -25,7 +29,6 @@ def navigate_traders(trader):
 
 # Examines all visible items in traders inventory
 def examine_items(trader):
-    print(f"Trader is: {trader}")
     columns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -35,7 +38,7 @@ def examine_items(trader):
 
     for row in rows:
         for column in columns:
-            pyg.moveTo(itemPos[0] + (column * 63), itemPos[1] + (row * 63))
+            pyg.moveTo(itemPos[0] + (column * itemColumnOffset), itemPos[1] + (row * itemRowOffset))
             pyg.middleClick()
             time.sleep(1.2)
 
