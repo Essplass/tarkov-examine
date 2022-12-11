@@ -3,4 +3,4 @@ A short python script using pyautogui to automate the tedious start of wipe exam
 
 ```pip -r install requirements.txt```
 
-```Note - this script was made for 1920x1080 displays.```
+```Note: this script was made for 1920x1080 displays.```
